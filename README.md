@@ -24,8 +24,24 @@ script 'dacRF.R' (maximal number of leaves is set to 500, test error is obtained
 sequentially)
 
 The number of data chunks, 'nchunks', the number of cores, 'ncores' and the 
-number of trees in all forests computing in the Map jobs, 'nbtrees', are all set
+number of trees in all forests computed in the chunks, 'nbtrees', are all set
 at the beginning of the file
+
+* A random forest obtained with blbRF approach is trained in parallel with the
+script 'blbRF.R' (maximal number of leaves is set to 500, test error is obtained
+sequentially)
+
+The number of subsamples, 'nbsub', the number of cores, 'ncores' and the 
+number of bootstrap samples (hence the number of trees) in all forests
+computed for each subsample, 'nbboot', are all set at the beginning of the file
+
+* A random forest obtained with moonRF approach is trained in parallel with the
+script 'moonRF.R' (maximal number of leaves is set to 500, test error is
+obtained sequentially)
+
+The sampling ratio for each subsamples, 'propSample', the number of cores,
+'ncores' and the total number of trees in the forest, 'total_nbtrees',
+are all set at the beginning of the file
 
 ## python scripts (in directory 'RFTK')
 
