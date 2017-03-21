@@ -1,7 +1,7 @@
 ##### Script description ------------------------------------------------------
-# Script that trains a random forest on a subsample. The forest is trained in 
-# parallel using ncores
-# The script uses the packages 'readr', 'parallel', 'dplyr' and 'randomForest'
+# Script that trains a random forest with the divide-and-conquer approach
+# (dacRF). The forest is trained in parallel using ncores.
+# The script uses the packages 'readr', 'parallel' and 'randomForest'
 ##### -------------------------------------------------------------------------
 
 library(readr)
@@ -41,7 +41,7 @@ myTimeTrain <- system.time({
 })
 
 ##### Computing BDerrForest ---------------------------------------------------
-print("computing training OOB errors...")
+print("computing OOB errors...")
 estOOB <- sum(unlist(lapply(simulated_mrrf, function(aforest) 
   tail(aforest$err.rate[,1], 1))) *
     c(rep(sizechunk,nbchunks-1), nbobs-(nbchunks-1)*sizechunk)

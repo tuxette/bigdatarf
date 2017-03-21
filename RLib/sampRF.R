@@ -9,7 +9,7 @@ library(parallel)
 library(randomForest)
 
 ##### Set parameters ----------------------------------------------------------
-propSample <- 1e-1 # sampling fraction
+propSample <- 1e-2 # sampling fraction
 ncores <- 10 # number of cores used for training the forest
 total_nbtrees <- 100 # total number of trees in the forest
 
@@ -73,7 +73,7 @@ predOOB <- Reduce("+", predOOB)
 predOOB <- levels(simulated$y)[unlist(apply(predOOB, 1, which.max))]
 errOOB <- (predOOB != simulated$y)
 errOOB <- sum(errOOB) / length(errOOB)
-# BDerrForest is: errOOB
+# errForest is: errOOB
 
 ##### Computing BDerrForest ---------------------------------------------------
 estOOB <- (predOOB != simulated$y)[mySample]

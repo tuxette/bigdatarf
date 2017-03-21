@@ -1,7 +1,7 @@
 ##### Script description ------------------------------------------------------
 # Script that trains a random forest on sequential data and obtain OOB and 
 # test errors
-# The script uses the packages 'readr','parallel' and 'randomForest'
+# The script uses the packages 'readr', 'parallel' and 'randomForest'
 ##### -------------------------------------------------------------------------
 
 library(readr)

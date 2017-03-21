@@ -52,7 +52,7 @@ alldata = do.call("rbind", alldata)
 # export (text format)
 write.table(alldata, file="alldata2.txt", row.names=FALSE)
 
-##### Data are permuted to avoid x-biais in MRRF (this part is not reproducible)
+##### Data are permuted to avoid x-biais in dacRF (this part is not reproducible)
 library(dplyr)
 alldata <- arrange(alldata, y)
 tab <- table(alldata$y)
