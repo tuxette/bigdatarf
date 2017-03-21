@@ -45,8 +45,7 @@ myTimeTrain <-system.time({
                           round((1-unbalance_prop)*propSample*nrow(simulated)), FALSE))
     }
     sampSimulated = simulated[mySample, ]
-    res = randomForest(y~., data=sampSimulated, ntree=1,
-                       # maxnodes=500,
+    res = randomForest(y~., data=sampSimulated, ntree=1, maxnodes=500,
                        replace=FALSE, sampsize=nrow(sampSimulated))
     return(list(forest=res, mySample=mySample))
   }, mc.cores=ncores)
